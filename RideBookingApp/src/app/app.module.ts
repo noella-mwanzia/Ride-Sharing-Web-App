@@ -8,12 +8,16 @@ import { NavBarComponent } from './core/nav-bar/nav-bar.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomePageComponent } from './home/home-page/home-page.component';
+import { MorningTripComponent } from './home/schedules/morning-trip/morning-trip.component';
+import { EveningTripComponent } from './home/schedules/evening-trip/evening-trip.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    HomePageComponent
+    HomePageComponent,
+    MorningTripComponent,
+    EveningTripComponent
   ],
   imports: [
     BrowserModule,
