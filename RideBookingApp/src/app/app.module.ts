@@ -8,6 +8,8 @@ import { NavBarComponent } from './core/nav-bar/nav-bar.component';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { MorningTripComponent } from './home/schedules/morning-trip/morning-trip.component';
 import { EveningTripComponent } from './home/schedules/evening-trip/evening-trip.component';
@@ -23,6 +25,7 @@ import { EveningTripComponent } from './home/schedules/evening-trip/evening-trip
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FlexLayoutModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule
