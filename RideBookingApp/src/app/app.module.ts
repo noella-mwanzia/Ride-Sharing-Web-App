@@ -9,6 +9,7 @@ import { NavBarComponent } from './core/nav-bar/nav-bar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatTabsModule} from '@angular/material/tabs';
 
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { MorningTripComponent } from './home/schedules/morning-trip/morning-trip.component';
@@ -28,7 +29,8 @@ import { EveningTripComponent } from './home/schedules/evening-trip/evening-trip
     FlexLayoutModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
