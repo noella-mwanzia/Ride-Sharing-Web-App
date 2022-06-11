@@ -8,7 +8,14 @@
     </span>
   </div>
 
-  <mat-card><h2>Ride Schedules</h2></mat-card>
+  <h2>Ride Schedules</h2>
+
+  <section>
+    <mat-tab-group animationDuration="200ms">
+      <mat-tab label="Morning"> <app-morning-trip></app-morning-trip> </mat-tab>
+      <mat-tab label="Evening"> <app-morning-trip></app-morning-trip></mat-tab>
+    </mat-tab-group>
+  </section>
   <br>
-  <app-morning-trip></app-morning-trip>
+  
 </div>
