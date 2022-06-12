@@ -19,11 +19,15 @@ export class BookRideFormComponent implements OnInit {
 
   initForm(){
     this.bookRideForm = this.fb.group({
-            "pickUp": ["", Validators.required],
-            "dropOff":["", Validators.required],
+            "pickUp": ["Jaharis", Validators.required],
+            "dropOff":["Westlands", Validators.required],
             "name":["",Validators.required],
             "date":["",Validators.required]
     })
+  }
+
+  bookRide(){
+
   }
 
 }

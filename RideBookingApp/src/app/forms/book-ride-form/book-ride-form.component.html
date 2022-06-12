@@ -1,1 +1,40 @@
-<p>book-ride-form works!</p>
+<div fxLayout="row" fxLayoutAlign="space-evenly center">
+  <section>
+    
+    <img src="../../../assets/book.svg" alt="booking illustration">
+
+    <form [formGroup]="bookRideForm" (ngSubmit)="bookRide()">
+      <div class="customise-border">
+        <mat-form-field appearance="fill">
+          <mat-label>From</mat-label>
+          <input matInput formControlName="pickUp">
+          <mat-hint>Pick Up</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="customise-border">
+        <mat-form-field appearance="fill">
+          <mat-label>To</mat-label>
+          <input matInput formControlName="dropOff">
+          <mat-hint>Drop Off</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="customise-border">
+        <mat-form-field appearance="fill">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <button mat-button class="close"><i class="fa fa-times" aria-hidden="true"></i> Cancel</button>
+        <button class="book-btn" mat-raised-button>Book Ride</button>
+      </div>
+      
+
+    </form>
+  </section>
+  
+</div>
