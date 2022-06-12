@@ -15,6 +15,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { HomePageComponent } from './home/home-page/home-page.component';
 import { MorningTripComponent } from './home/schedules/morning-trip/morning-trip.component';
 import { EveningTripComponent } from './home/schedules/evening-trip/evening-trip.component';
+import { BookRideFormComponent } from './forms/book-ride-form/book-ride-form.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EveningTripComponent } from './home/schedules/evening-trip/evening-trip
     NavBarComponent,
     HomePageComponent,
     MorningTripComponent,
-    EveningTripComponent
+    EveningTripComponent,
+    BookRideFormComponent
   ],
   imports: [
     BrowserModule,
