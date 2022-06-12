@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-book-ride-form',
   templateUrl: './book-ride-form.component.html',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookRideFormComponent implements OnInit {
 
-  constructor() { }
+  bookRideForm!: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.initForm()
+  }
+
+  initForm(){
+    this.bookRideForm = this.fb.group({
+            "pickUp": ["", Validators.required],
+            "dropOff":["", Validators.required],
+            "name":["",Validators.required],
+            "date":["",Validators.required]
+    })
   }
 
 }
