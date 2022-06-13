@@ -18,7 +18,6 @@ export class MorningTripComponent implements OnInit {
   bookRide(){
     const dialogRef = this.dialog.open(BookRideDialogComponent, {
       width: '350px',
-      height: '400px',
       data: { },
     });
 

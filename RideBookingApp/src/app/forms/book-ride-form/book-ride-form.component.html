@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="space-evenly center">
   <section>
-    
+
     <img src="../../../assets/book.svg" alt="booking illustration">
 
     <form [formGroup]="bookRideForm" (ngSubmit)="bookRide()">
@@ -29,7 +29,7 @@
       </div>
 
       <div fxLayout="row" fxLayoutAlign="end center">
-        <button mat-button class="close"><i class="fa fa-times" aria-hidden="true"></i> Cancel</button>
+        <button mat-raised-button class="close">Cancel</button>
         <button class="book-btn" mat-raised-button>Book Ride</button>
       </div>
       
