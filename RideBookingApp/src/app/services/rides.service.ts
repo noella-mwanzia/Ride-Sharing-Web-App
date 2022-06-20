@@ -12,7 +12,7 @@ export class RidesService {
 
   //add designated bus stops in a particular area
   addAreaStage(route:RideSchedules, period: 'morning' | 'evening'){
-    const collectionRef = this.db.collection<RideSchedules>(`rides/imara-daima/route-schedules/${period}`);
+    const collectionRef = this.db.collection<RideSchedules>(`route-schedules/imara-daima/${period}`);
     return collectionRef.add(route);
   }
 }
