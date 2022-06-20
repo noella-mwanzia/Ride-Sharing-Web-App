@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { AngularFireModule } from '@angular/fire/compat';
 
@@ -41,6 +42,7 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     ReactiveFormsModule ,
     AppRoutingModule,
     FlexLayoutModule,
