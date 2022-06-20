@@ -28,6 +28,7 @@ import { BookRideFormComponent } from './forms/book-ride-form/book-ride-form.com
 import { BookRideDialogComponent } from './dialogs/book-ride-dialog/book-ride-dialog.component';
 
 import { environment } from '../environments/environment';
+import { RidesService } from './services/rides.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { environment } from '../environments/environment';
     MatButtonModule
     
   ],
-  providers: [],
+  providers: [RidesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
