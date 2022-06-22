@@ -4,24 +4,24 @@
 
   <div class="sign-up-form">
     <span>Sign Up</span>
-    <form fxLayout="column"> 
+    <form [formGroup]="signUpForm" fxLayout="column"> 
 
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Name</mat-label>
-          <input matInput placeholder="Enter first name">
+          <input matInput placeholder="Enter first name" formControlName="name">
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Phone Number</mat-label>
-          <input matInput placeholder="Phone number">
+          <input matInput placeholder="Phone number" formControlName="phoneNumber">
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="johndoe@gmail.com">
+          <input matInput placeholder="johndoe@gmail.com" formControlName="email">
         </mat-form-field>
       </div>
       <div>
@@ -33,7 +33,7 @@
       <div>
         <mat-form-field appearance="outline">
           <mat-label>Confirm Password</mat-label>
-          <input matInput placeholder="******">
+          <input matInput placeholder="******" formControlName="password">
         </mat-form-field>
       </div>
 
