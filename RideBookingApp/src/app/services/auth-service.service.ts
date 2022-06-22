@@ -4,7 +4,7 @@ import { Roles } from '../interfaces/roles';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthServiceService {
+export class AuthService {
 
   constructor(private afAuth: AngularFireAuth) { }
 

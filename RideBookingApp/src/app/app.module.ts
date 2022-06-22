@@ -27,6 +27,8 @@ import { EveningTripComponent } from './home/schedules/evening-trip/evening-trip
 import { BookRideFormComponent } from './forms/book-ride-form/book-ride-form.component';
 import { BookRideDialogComponent } from './dialogs/book-ride-dialog/book-ride-dialog.component';
 
+import { AuthService } from './services/auth-service.service';
+
 import { environment } from '../environments/environment';
 import { RidesService } from './services/rides.service';
 import { LoginComponent } from './auth/login/login.component';
@@ -63,7 +65,7 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
     MatButtonModule
     
   ],
-  providers: [RidesService],
+  providers: [RidesService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
