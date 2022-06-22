@@ -29,6 +29,8 @@ import { BookRideDialogComponent } from './dialogs/book-ride-dialog/book-ride-di
 
 import { environment } from '../environments/environment';
 import { RidesService } from './services/rides.service';
+import { LoginComponent } from './auth/login/login.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { RidesService } from './services/rides.service';
     MorningTripComponent,
     EveningTripComponent,
     BookRideFormComponent,
-    BookRideDialogComponent
+    BookRideDialogComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
