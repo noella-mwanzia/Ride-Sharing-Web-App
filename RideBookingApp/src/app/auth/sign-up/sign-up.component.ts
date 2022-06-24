@@ -31,7 +31,7 @@ export class SignUpComponent implements OnInit {
   }
 
   signUpUser(){
-    this.authService.signUpWithEmailAndPassword(this.signUpForm.value, UserType.captain)
+    this.authService.signUpWithEmailAndPassword(this.signUpForm.value, UserType.passenger)
   }
 
 }
