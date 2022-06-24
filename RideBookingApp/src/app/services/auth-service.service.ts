@@ -27,7 +27,11 @@ private addToUsersCollection(displayName: string, email: string, userId: string,
     displayName: displayName,
     email: email,
     uId: userId,
-    role: userType
+    roles: {
+      captain: userType === UserType.captain ? true : false,
+      admin: false,
+      passenger: userType === UserType.passenger ? true : false
+    }
   }
 
   this.db.collection(`users`).doc(userId).set(userDetails)
