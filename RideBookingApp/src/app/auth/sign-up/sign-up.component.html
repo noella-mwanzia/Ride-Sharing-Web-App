@@ -41,8 +41,9 @@
         <div>
           <button [disabled]="!signUpForm.valid" (click)="signUpUser()" mat-raised-button class="sign-up">Sign Up</button>
         </div>
-        <div>
-          <a routerLink="/login">Already have an account?</a>
+        <br>
+        <div fxLayout="row">
+          <p>Already have an account?</p> &nbsp;<a routerLink="/login">Log In</a>
         </div>
       </div>
       
