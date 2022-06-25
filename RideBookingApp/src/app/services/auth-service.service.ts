@@ -17,27 +17,29 @@ signUpWithEmailAndPassword(form: any , userType: UserType)
 {
   return  this.afAuth
               .createUserWithEmailAndPassword(form.email,form.password)
-              .then(res => this.addToUsersCollection(res.user.displayName, res.user.email, res.user.uid ,userType))
+              .then(res => {
+                this.addToUsersCollection(res.user.displayName, res.user.email, res.user.uid ,userType)
+                return res.user;
+              })
               .catch(error => console.log(error))
 }
 
 private addToUsersCollection(displayName: string, email: string, userId: string, userType: UserType)
 {
-  const userDetails = { 
+  const userDetails: any = { 
     displayName: displayName,
     email: email,
     uId: userId,
+    id: userId,
     roles: {
       captain: userType === UserType.captain ? true : false,
       admin: false,
       passenger: userType === UserType.passenger ? true : false
-    }
+    },
+    createdOn: new Date()
   }
 
   this.db.collection(`users`).doc(userId).set(userDetails)
-      .then((res) => console.log(`User successfully added to users collection`))
-      .catch(error => console.log(error))
-
 }
 }
 
