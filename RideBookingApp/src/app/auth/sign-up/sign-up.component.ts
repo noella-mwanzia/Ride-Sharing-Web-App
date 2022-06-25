@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth-service.service';
 import { Roles, UserType } from 'src/app/interfaces/roles';
+import { Router } from '@angular/router';
 
 
 
@@ -15,10 +16,11 @@ export class SignUpComponent implements OnInit {
   signUpForm!: FormGroup;
 
   constructor(  private fb: FormBuilder,
-                private authService: AuthService) { }
+                private authService: AuthService,
+                private router: Router) { }
 
   ngOnInit(): void {
-    this.initForm()
+    this.initForm();
   }
 
   initForm(){
@@ -31,7 +33,16 @@ export class SignUpComponent implements OnInit {
   }
 
   signUpUser(){
-    this.authService.signUpWithEmailAndPassword(this.signUpForm.value, UserType.passenger)
+
+    if(this.signUpForm.valid)
+    {
+      this.authService.signUpWithEmailAndPassword(this.signUpForm.value, UserType.passenger)
+      .then((res) => {
+        console.log(`User details, ${res}`)
+        this.router.navigate(['/home'])
+      })
+    }
+    
   }
 
 }
