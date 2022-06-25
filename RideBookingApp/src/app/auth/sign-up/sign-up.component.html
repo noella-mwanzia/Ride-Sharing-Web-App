@@ -3,7 +3,7 @@
   <img src="../../../assets/sign-up.svg" alt="location illustration">
 
   <div class="sign-up-form">
-    <span>Sign Up</span>
+    <span>Create new account</span>
     <form [formGroup]="signUpForm" fxLayout="column"> 
 
       <div>
@@ -37,9 +37,12 @@
         </mat-form-field>
       </div>
 
-      <div class="buttons"> 
+      <div class="buttons" fxLayout="column" fxLayoutAlign="space-between center"> 
         <div>
           <button [disabled]="!signUpForm.valid" (click)="signUpUser()" mat-raised-button class="sign-up">Sign Up</button>
+        </div>
+        <div>
+          <a routerLink="/login">Already have an account?</a>
         </div>
       </div>
       
