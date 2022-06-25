@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth,
               private db: AngularFirestore) { }
 
-
+//function used to create new users.
 public signUpWithEmailAndPassword(form: any , userType: UserType)
 {
   return  this.afAuth
@@ -24,6 +24,7 @@ public signUpWithEmailAndPassword(form: any , userType: UserType)
               .catch(error => console.log(error))
 }
 
+//function used to log in existing users
 public loginWithEmailAndPassword(email: string, password: string){
   return this.afAuth.signInWithEmailAndPassword(email, password)
                     .then(res => `[AuthService] Successfully logged in user.`)
@@ -31,6 +32,7 @@ public loginWithEmailAndPassword(email: string, password: string){
 
 }
 
+//Once a new user has been created, add them to the user's collection.
 private addToUsersCollection(displayName: string, email: string, userId: string, userType: UserType)
 {
   const userDetails: any = { 
