@@ -39,7 +39,7 @@
 
       <div class="buttons"> 
         <div>
-          <button (click)="signUpUser()" mat-raised-button class="sign-up">Sign Up</button>
+          <button [disabled]="!signUpForm.valid" (click)="signUpUser()" mat-raised-button class="sign-up">Sign Up</button>
         </div>
       </div>
       
