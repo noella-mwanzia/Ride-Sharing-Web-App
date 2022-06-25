@@ -33,6 +33,7 @@ import { environment } from '../environments/environment';
 import { RidesService } from './services/rides.service';
 import { LoginComponent } from './auth/login/login.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
     AngularFirestoreModule,
     ReactiveFormsModule ,
     AppRoutingModule,
+    RouterModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
     MatToolbarModule,
