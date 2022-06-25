@@ -13,7 +13,7 @@ export class AuthService {
               private db: AngularFirestore) { }
 
 
-signUpWithEmailAndPassword(form: any , userType: UserType)
+public signUpWithEmailAndPassword(form: any , userType: UserType)
 {
   return  this.afAuth
               .createUserWithEmailAndPassword(form.email,form.password)
@@ -22,6 +22,13 @@ signUpWithEmailAndPassword(form: any , userType: UserType)
                 return res.user;
               })
               .catch(error => console.log(error))
+}
+
+public loginWithEmailAndPassword(email: string, password: string){
+  return this.afAuth.signInWithEmailAndPassword(email, password)
+                    .then(res => `[AuthService] Successfully logged in user.`)
+                    .catch(err => console.log(err))
+
 }
 
 private addToUsersCollection(displayName: string, email: string, userId: string, userType: UserType)
