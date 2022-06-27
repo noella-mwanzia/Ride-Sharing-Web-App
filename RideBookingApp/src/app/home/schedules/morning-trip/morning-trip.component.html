@@ -1,19 +1,19 @@
-<mat-card>
+<mat-card *ngFor = "let route of routes$ | async ">
   <div fxLayout="row" fxLayoutAlign="space-around center">
     <div class="time" fxLayout="column" fxFlex="65">
       <div class="pick" fxFlex="50"> 
-        <span>6.15</span>
+        <span>{{route.pickUpTime}}</span>
         &nbsp;
         <span><i class="fa fa-circle-o"></i></span>
          &nbsp;
-        <span>Jaharis</span>
+        <span>{{route.pickUp}}</span>
         </div>
       <div class="drop" fxFlex="50">
-        <span>7.15</span>
+        <span>{{route.dropOffTime}}</span>
         &nbsp;
         <span><i class="fa fa-circle-o"></i></span>
          &nbsp;
-        <span>Westlands</span>
+        <span>{{route.dropOff}}</span>
       </div>
     </div>
   
@@ -25,139 +25,11 @@
   <div class="footer" fxLayout="row" fxLayoutAlign="space-around center">
     <span> 
       <i class="fa fa-money"></i> &nbsp;
-      KES 100
+      {{route.fare}}
     </span>
     <span>
       <i class="fa fa-clock-o"></i> &nbsp;
-      45min
-    </span>
-    <span>
-      <i class="fa fa-users"></i> &nbsp;
-      25
-    </span>
-  </div>
-  
-
-</mat-card>
-
-<!-- Card Two -->
-<mat-card>
-  <div fxLayout="row" fxLayoutAlign="space-around center">
-    <div class="time" fxLayout="column" fxFlex="65">
-      <div class="pick" fxFlex="50"> 
-        <span>6.20</span>
-        &nbsp;
-        <span><i class="fa fa-circle-o"></i></span>
-         &nbsp;
-        <span>Corner</span>
-        </div>
-      <div class="drop" fxFlex="50">
-        <span>7.15</span>
-        &nbsp;
-        <span><i class="fa fa-circle-o"></i></span>
-         &nbsp;
-        <span>Westlands</span>
-      </div>
-    </div>
-  
-    <div class="book" fxLayout="column" fxFlex="25">
-      <a (click)="bookRide()"> BOOK NOW</a> 
-    </div>
-  </div>
-
-  <div class="footer" fxLayout="row" fxLayoutAlign="space-around center">
-    <span> 
-      <i class="fa fa-money"></i> &nbsp;
-      KES 100
-    </span>
-    <span>
-      <i class="fa fa-clock-o"></i> &nbsp;
-      45min
-    </span>
-    <span>
-      <i class="fa fa-users"></i> &nbsp;
-      25
-    </span>
-  </div>
-  
-
-</mat-card>
-
-<!-- Card Three -->
-<mat-card>
-  <div fxLayout="row" fxLayoutAlign="space-around center">
-    <div class="time" fxLayout="column" fxFlex="65">
-      <div class="pick" fxFlex="50"> 
-        <span>6.25</span>
-        &nbsp;
-        <span><i class="fa fa-circle-o"></i></span>
-         &nbsp;
-        <span>AA</span>
-        </div>
-      <div class="drop" fxFlex="50">
-        <span>7.15</span>
-        &nbsp;
-        <span><i class="fa fa-circle-o"></i></span>
-         &nbsp;
-        <span>Westlands</span>
-      </div>
-    </div>
-  
-    <div class="book" fxLayout="column" fxFlex="25">
-      <a (click)="bookRide()"> BOOK NOW</a> 
-    </div>
-  </div>
-
-  <div class="footer" fxLayout="row" fxLayoutAlign="space-around center">
-    <span> 
-      <i class="fa fa-money"></i> &nbsp;
-      KES 100
-    </span>
-    <span>
-      <i class="fa fa-clock-o"></i> &nbsp;
-      45min
-    </span>
-    <span>
-      <i class="fa fa-users"></i> &nbsp;
-      25
-    </span>
-  </div>
-  
-
-</mat-card>
-<!-- Card Four -->
-<mat-card>
-  <div fxLayout="row" fxLayoutAlign="space-around center">
-    <div class="time" fxLayout="column" fxFlex="65">
-      <div class="pick" fxFlex="50"> 
-        <span>6.30</span>
-        &nbsp;
-        <span><i class="fa fa-circle-o"></i></span>
-        &nbsp;
-        <span>Imara Daima Estate</span>
-        </div>
-      <div class="drop" fxFlex="50">
-        <span>7.15</span>
-        &nbsp;
-        <span><i class="fa fa-circle-o"></i></span>
-         &nbsp;
-        <span>Westlands</span>
-      </div>
-    </div>
-  
-    <div class="book" fxLayout="column" fxFlex="25">
-      <a (click)="bookRide()"> BOOK NOW</a> 
-    </div>
-  </div>
-
-  <div class="footer" fxLayout="row" fxLayoutAlign="space-around center">
-    <span> 
-      <i class="fa fa-money"></i> &nbsp;
-      KES 100
-    </span>
-    <span>
-      <i class="fa fa-clock-o"></i> &nbsp;
-      45min
+      {{route.rideDuration}}
     </span>
     <span>
       <i class="fa fa-users"></i> &nbsp;
