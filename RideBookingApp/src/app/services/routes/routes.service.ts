@@ -15,8 +15,9 @@ export class RoutesService {
 
   constructor( private afs: AngularFirestore) { }
 
+  //Returns the ride schedules sorted by the pick up time.
   getRoutes(time: string): Observable<RideSchedules[]>{
-    return this.afs.collection<RideSchedules>(`route-schedules/imara-daima/${time}`)
+    return this.afs.collection<RideSchedules>(`route-schedules/imara-daima/${time}`, ref => ref.orderBy('pickUpTime'))
                     .snapshotChanges()
                     .pipe(map(routes => 
                       routes.map(route => {
