@@ -34,6 +34,7 @@ import { RidesService } from './services/rides.service';
 import { LoginComponent } from './auth/login/login.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { RouterModule } from '@angular/router';
+import { RoutesService } from './services/routes/routes.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { RouterModule } from '@angular/router';
     MatButtonModule
     
   ],
-  providers: [RidesService, AuthService],
+  providers: [RidesService, AuthService,
+              RoutesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
