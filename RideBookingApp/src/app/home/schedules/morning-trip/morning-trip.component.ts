@@ -22,7 +22,7 @@ export class MorningTripComponent implements OnInit {
     this.routes$ = this.routesService.getRoutes('morning')
   }
    
-  bookRide(){
+  bookRide(route: RideSchedules){
     const dialogRef = this.dialog.open(BookRideDialogComponent, {
       width: '350px',
       data: { },
