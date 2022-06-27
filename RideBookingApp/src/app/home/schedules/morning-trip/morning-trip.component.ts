@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 
 import { BookRideDialogComponent } from 'src/app/dialogs/book-ride-dialog/book-ride-dialog.component';
+import { RideSchedules } from 'src/app/interfaces/ride-schedules';
+import { RoutesService } from 'src/app/services/routes/routes.service';
 
 @Component({
   selector: 'app-morning-trip',
@@ -10,9 +13,13 @@ import { BookRideDialogComponent } from 'src/app/dialogs/book-ride-dialog/book-r
 })
 export class MorningTripComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  routes$: Observable<RideSchedules[]>
+
+  constructor(public dialog: MatDialog,
+              private routesService: RoutesService) { }
 
   ngOnInit(): void {
+    this.routes$ = this.routesService.getRoutes('morning')
   }
    
   bookRide(){
