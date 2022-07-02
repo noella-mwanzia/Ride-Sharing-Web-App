@@ -3,7 +3,7 @@
 
     <img src="../../../assets/book.svg" alt="booking illustration">
 
-    <form [formGroup]="bookRideForm" (ngSubmit)="bookRide()">
+    <form [formGroup]="bookRideForm">
       <div class="customise-border">
         <mat-form-field appearance="fill">
           <mat-label>From</mat-label>
@@ -29,8 +29,8 @@
       </div>
 
       <div fxLayout="row" fxLayoutAlign="end center">
-        <button mat-raised-button class="close">Cancel</button>
-        <button class="book-btn" mat-raised-button>Book Ride</button>
+        <button mat-raised-button class="close" (click)="cancel()">Cancel</button>
+        <button class="book-btn" mat-raised-button (click)="bookRide()">Book Ride</button>
       </div>
       
 
