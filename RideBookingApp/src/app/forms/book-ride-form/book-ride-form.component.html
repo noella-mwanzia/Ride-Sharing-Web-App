@@ -7,21 +7,21 @@
       <div class="customise-border">
         <mat-form-field appearance="fill">
           <mat-label>From</mat-label>
-          <input matInput formControlName="pickUp">
+          <input matInput formControlName="pickUp" readonly>
           <mat-hint>Pick Up</mat-hint>
         </mat-form-field>
       </div>
       <div class="customise-border">
         <mat-form-field appearance="fill">
           <mat-label>To</mat-label>
-          <input matInput formControlName="dropOff">
+          <input matInput formControlName="dropOff" readonly>
           <mat-hint>Drop Off</mat-hint>
         </mat-form-field>
       </div>
       <div class="customise-border">
         <mat-form-field appearance="fill">
           <mat-label>Date</mat-label>
-          <input matInput [matDatepicker]="picker">
+          <input matInput [matDatepicker]="picker" formControlName="rideDate">
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
@@ -36,5 +36,6 @@
 
     </form>
   </section>
+
   
 </div>
