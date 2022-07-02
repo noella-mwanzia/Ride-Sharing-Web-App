@@ -2,9 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { BookingService } from 'src/app/services/bookings/booking.service';
+import { ActiveUserService } from 'src/app/services/active-user.service';
 
 import { Booking } from 'src/app/interfaces/bookings.interface';
 import { RideSchedules } from 'src/app/interfaces/ride-schedules';
+import { User } from 'src/app/interfaces/user.interface';
 
 @Component({
   selector: 'app-book-ride-form',
@@ -17,12 +19,14 @@ export class BookRideFormComponent implements OnInit {
   @Input() period: string
 
   bookRideForm : FormGroup;
+  activeUser: User;
 
   constructor(private fb: FormBuilder,
-              private bookingService: BookingService) { }
+              private bookingService: BookingService,
+              private userService: ActiveUserService ) { }
 
   ngOnInit(): void {
-    this.rideDetails;
+    this.userService.getActiveUser().subscribe(u => this.activeUser = u);
     this.initForm()
   }
 
@@ -42,9 +46,12 @@ export class BookRideFormComponent implements OnInit {
       pickUp: bookFormData.pickUp,
       dropOff: bookFormData.dropOff,
       rideDate: bookFormData.rideDate,
+      passengerName: this.activeUser.displayName,
+      passengerPhone: this.activeUser.phone,
+      userId: this.activeUser.uId,
     } as Booking
 
-    this.bookingService.bookRide(booking, 'morning')
+    this.bookingService.bookRide(booking, 'morning');
 
   }
 
