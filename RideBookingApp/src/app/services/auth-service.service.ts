@@ -19,7 +19,7 @@ public signUpWithEmailAndPassword(form: any , userType: UserType)
   return  this.afAuth
               .createUserWithEmailAndPassword(form.email,form.password)
               .then(res => {
-                this.addToUsersCollection(res.user.displayName, res.user.email, res.user.uid ,userType,form.phoneNumber)
+                this.addToUsersCollection(form.name, res.user.email, res.user.uid ,userType,form.phoneNumber)
                 return res.user;
               })
               .catch(error => console.log(error))
