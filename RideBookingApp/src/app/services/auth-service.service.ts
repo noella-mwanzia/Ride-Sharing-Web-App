@@ -3,6 +3,7 @@ import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 import { Roles, UserType } from '../interfaces/roles';
+import { User } from '../interfaces/user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ public signUpWithEmailAndPassword(form: any , userType: UserType)
   return  this.afAuth
               .createUserWithEmailAndPassword(form.email,form.password)
               .then(res => {
-                this.addToUsersCollection(res.user.displayName, res.user.email, res.user.uid ,userType)
+                this.addToUsersCollection(res.user.displayName, res.user.email, res.user.uid ,userType,form.phoneNumber)
                 return res.user;
               })
               .catch(error => console.log(error))
@@ -33,9 +34,9 @@ public loginWithEmailAndPassword(email: string, password: string){
 }
 
 //Once a new user has been created, add them to the user's collection.
-private addToUsersCollection(displayName: string, email: string, userId: string, userType: UserType)
+private addToUsersCollection(displayName: string, email: string, userId: string, userType: UserType, phone: number)
 {
-  const userDetails: any = { 
+  const userDetails: User = { 
     displayName: displayName,
     email: email,
     uId: userId,
@@ -45,6 +46,7 @@ private addToUsersCollection(displayName: string, email: string, userId: string,
       admin: false,
       passenger: userType === UserType.passenger ? true : false
     },
+    phone: phone,
     createdOn: new Date()
   }
 
