@@ -11,6 +11,8 @@ export class BookRideDialogComponent implements OnInit {
 
   rideDetails: RideSchedules;
   period: string;
+  bookingSuccessful: boolean;
+  awaitingBooking: boolean = true;
 
   constructor( public dialogRef: MatDialogRef<BookRideDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,) { }
@@ -22,6 +24,11 @@ export class BookRideDialogComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  confirmBookingStatus(res){
+    this.awaitingBooking = false;
+    this.bookingSuccessful = res;
   }
 
 }

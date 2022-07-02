@@ -18,7 +18,8 @@ export class BookRideFormComponent implements OnInit {
   @Input() rideDetails: RideSchedules
   @Input() period: string
 
-  @Output() closeDialog : EventEmitter<boolean> = new EventEmitter
+  @Output() closeDialog : EventEmitter<boolean> = new EventEmitter;
+  @Output() bookingSuccessful: EventEmitter<any> = new EventEmitter;
 
   bookRideForm : FormGroup;
   activeUser: User;
@@ -53,7 +54,9 @@ export class BookRideFormComponent implements OnInit {
       userId: this.activeUser.uId,
     } as Booking
 
-    this.bookingService.bookRide(booking, this.period);
+    this.bookingService.bookRide(booking, this.period)
+          .then(res => this.bookingSuccessful.emit(true))
+          .catch(err => this.bookingSuccessful.emit(false))
   }
 
   cancel(){
