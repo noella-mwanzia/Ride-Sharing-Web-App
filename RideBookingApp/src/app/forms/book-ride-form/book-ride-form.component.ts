@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { BookingService } from 'src/app/services/bookings/booking.service';
+
+import { Booking } from 'src/app/interfaces/bookings.interface';
+import { RideSchedules } from 'src/app/interfaces/ride-schedules';
 
 @Component({
   selector: 'app-book-ride-form',
@@ -9,24 +13,38 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class BookRideFormComponent implements OnInit {
 
-  bookRideForm!: FormGroup;
+  @Input() rideDetails: RideSchedules
+  @Input() period: string
 
-  constructor(private fb: FormBuilder) { }
+  bookRideForm : FormGroup;
+
+  constructor(private fb: FormBuilder,
+              private bookingService: BookingService) { }
 
   ngOnInit(): void {
+    this.rideDetails;
     this.initForm()
   }
 
   initForm(){
     this.bookRideForm = this.fb.group({
-            "pickUp": ["Jaharis", Validators.required],
-            "dropOff":["Westlands", Validators.required],
-            "name":["",Validators.required],
-            "date":["",Validators.required]
+            "pickUp": [ this.rideDetails?.pickUp, Validators.required],
+            "dropOff":[ this.rideDetails?.dropOff, Validators.required],
+            "rideDate":[ new Date(),Validators.required]
     })
   }
 
-  bookRide(){
+  bookRide()
+  {
+    const bookFormData = this.bookRideForm.value;
+
+    const booking = {
+      pickUp: bookFormData.pickUp,
+      dropOff: bookFormData.dropOff,
+      rideDate: bookFormData.rideDate,
+    } as Booking
+
+    this.bookingService.bookRide(booking, 'morning')
 
   }
 
