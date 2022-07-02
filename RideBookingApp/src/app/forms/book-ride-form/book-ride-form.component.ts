@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { BookingService } from 'src/app/services/bookings/booking.service';
@@ -17,6 +17,8 @@ export class BookRideFormComponent implements OnInit {
 
   @Input() rideDetails: RideSchedules
   @Input() period: string
+
+  @Output() closeDialog : EventEmitter<boolean> = new EventEmitter
 
   bookRideForm : FormGroup;
   activeUser: User;
@@ -51,8 +53,11 @@ export class BookRideFormComponent implements OnInit {
       userId: this.activeUser.uId,
     } as Booking
 
-    this.bookingService.bookRide(booking, 'morning');
+    this.bookingService.bookRide(booking, this.period);
+  }
 
+  cancel(){
+    this.closeDialog.emit(true)
   }
 
 }
