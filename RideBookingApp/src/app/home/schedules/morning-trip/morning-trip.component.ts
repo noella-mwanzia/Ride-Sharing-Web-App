@@ -25,7 +25,7 @@ export class MorningTripComponent implements OnInit {
   bookRide(route: RideSchedules){
     const dialogRef = this.dialog.open(BookRideDialogComponent, {
       width: '350px',
-      data: { },
+      data: { period: 'morning', rideDetails: route},
     });
 
     dialogRef.afterClosed().subscribe(result => {
