@@ -1,5 +1,16 @@
-<app-book-ride-form 
-[rideDetails]="rideDetails"
-[period]="period"
-(closeDialog)="closeDialog()">
-</app-book-ride-form>
+<div *ngIf="awaitingBooking; else successful">
+  <app-book-ride-form 
+  [rideDetails]="rideDetails"
+  [period]="period"
+  (closeDialog)="closeDialog()"
+  (bookingSuccessful)="confirmBookingStatus($event)">
+  </app-book-ride-form>
+</div>
+
+
+<ng-template #successful>
+  <span class="close" (click)="closeDialog()"><i class="fa fa-times" aria-hidden="true"></i></span>
+  <img src="../../../assets/successful.svg">
+  <span class="text">Booking Done!</span>
+  <span class="close" (click)="closeDialog()"> Back </span>
+</ng-template>
